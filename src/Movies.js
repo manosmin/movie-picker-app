@@ -21,23 +21,22 @@ function Movies() {
 
     return (
         <div>
-            <div style={{ textAlign: 'center', marginTop: '2rem'}}>
+            <div className='div1'>
                 <input
-                    style={{ marginRight: '0.5rem' }}
                     placeholder="Search"
                     onChange={(e) => setUserInput(e.target.value)}
                 ></input>
                 <button onClick={sendQuery}>🔎</button>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '100%'}} className="row">
+            <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '100%'}} className="div2 row">
                 {movieResults && movieResults.Response !== 'False' &&
                     movieResults.Search.slice(0, 5).map(item => (
                         <MovieElement myResults={item}></MovieElement>
                     ))}
             </div>
             {movieResults && movieResults.Response !== 'False' && (
-                <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-                    <button style={{ marginRight: '0.5rem' }} disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                <div className='div1'>
+                    <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                         ⬅
                     </button>
                     <button disabled={currentPage === 3} onClick={() => setCurrentPage(currentPage + 1)}>
