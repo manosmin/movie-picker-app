@@ -4,6 +4,7 @@ import MovieElement from './MovieElement';
 function Movies() {
     const API_KEY = '7b24a2fe';
     const [userInput, setUserInput] = useState('');
+    const [userTypeInput, setUserTypeInput] = useState('');
     const [movieResults, setMovieResults] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -12,7 +13,7 @@ function Movies() {
     }, [currentPage]);
 
     function sendQuery() {
-        const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&page=${currentPage}`;
+        const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&page=${currentPage}&type=${userTypeInput}`;
         fetch(API_URL)
             .then(response => response.json())
             .then(json => setMovieResults(json))
@@ -23,8 +24,12 @@ function Movies() {
         <div>
             <div className='div1'>
                 <input
-                    placeholder="Search"
+                    placeholder="Search Title"
                     onChange={(e) => setUserInput(e.target.value)}
+                ></input>
+                <input
+                    placeholder="Search Type"
+                    onChange={(e) => setUserTypeInput(e.target.value)}
                 ></input>
                 <button onClick={sendQuery}>🔎</button>
             </div>
