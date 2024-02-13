@@ -11,7 +11,7 @@ function MovieElement(props) {
 
     return (<>
             <Card style={styles}>
-                <Card.Img variant="top" src={props.myResults.Poster} />
+                <Card.Img variant="top" src={props.myResults.Poster} style={{marginTop: '1rem'}}/>
                 <Card.Body>
                     <Card.Title>{props.myResults.Title}</Card.Title>
                     <Card.Text>{props.myResults.Year}</Card.Text>

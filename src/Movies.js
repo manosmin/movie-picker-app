@@ -40,7 +40,7 @@ function Movies() {
                     <button style={{ marginRight: '0.5rem' }} disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                         ⬅
                     </button>
-                    <button disabled={currentPage === 5} onClick={() => setCurrentPage(currentPage + 1)}>
+                    <button disabled={currentPage === 3} onClick={() => setCurrentPage(currentPage + 1)}>
                         ➡
                     </button>
                 </div>
