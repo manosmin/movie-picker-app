@@ -28,7 +28,7 @@ function Movies() {
                 ></input>
                 <button onClick={sendQuery}>🔎</button>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '100%'}} className="div2 row">
+            <div className="div2">
                 {movieResults && movieResults.Response !== 'False' &&
                     movieResults.Search.slice(0, 5).map(item => (
                         <MovieElement myResults={item}></MovieElement>
