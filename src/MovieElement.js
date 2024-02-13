@@ -2,8 +2,12 @@ import Card from 'react-bootstrap/Card'
 
 function MovieElement(props) {
 
+    function redirectToPage() {
+        window.open(`https://www.imdb.com/title/${props.myResults.imdbID}`, '_blank');
+    }
+
     return (<>
-            <Card className='card1'>
+            <Card className='card1' onClick={redirectToPage}>
                 <Card.Img variant="top" src={props.myResults.Poster} style={{marginTop: '1rem'}}/>
                 <Card.Body>
                     <Card.Title>{props.myResults.Title}</Card.Title>
