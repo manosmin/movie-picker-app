@@ -38,3 +38,14 @@ input {
   padding: 0.5rem;
   cursor: pointer;
 }
+
+.card2 {
+  text-align: right;
+  width: 24rem;
+  margin-right: 1rem;
+  margin-left: 1rem; 
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
