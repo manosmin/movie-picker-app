@@ -14,6 +14,12 @@ function Movies() {
         sendQuery();
     }, [currentPage]);
 
+    useEffect(() => {
+        setUserInput('');
+        setUserTypeInput('');
+        setUserYearInput('');
+    }, [userIDInput]);
+
     function sendQuery() {
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
