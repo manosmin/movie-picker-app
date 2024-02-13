@@ -10,11 +10,11 @@ body {
 
 button {
   margin-right: 0.5rem;
-  padding: 10px 20px
+  padding: 0.5rem 1rem
 }
 
 input {
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   margin-right: 0.5rem;
 }
 
