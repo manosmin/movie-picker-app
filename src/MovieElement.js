@@ -7,8 +7,8 @@ function MovieElement(props) {
     }
 
     return (<>
-            <Card className='card1' onClick={redirectToPage}>
-                <Card.Img variant="top" src={props.myResults.Poster} style={{marginTop: '1rem'}}/>
+            <Card className='card1'>
+                <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster} style={{marginTop: '1rem', cursor: 'pointer'}}/>
                 <Card.Body>
                     <Card.Title>{props.myResults.Title}</Card.Title>
                     <Card.Text><b>Year: </b>{props.myResults.Year}</Card.Text>
