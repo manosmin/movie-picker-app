@@ -14,30 +14,30 @@ function Movies() {
         sendQuery();
     }, [currentPage]);
 
-    function handleTypeInput() {
+    function checkTypeInput() {
         const allowedTypes = ['movie', 'game', 'episode', 'series'];
         return userTypeInput === '' || allowedTypes.includes(userTypeInput.trim().toLowerCase())
     }
 
-    function handleYearInput() {
+    function checkYearInput() {
         return userYearInput === '' || (/^\d{4}$/).test(userYearInput)
     }
 
-    function handleIDInput() {
+    function checkIDInput() {
         return userIDInput.startsWith('tt')
     }
 
-    function handleInput() {
+    function checkInput() {
         return (/^[^\s]{1,}$/).test(userInput);
     }
     
     function sendQuery() {
         // Case 1: Title and Year and/or Type only 
-        if (handleInput() && handleYearInput() && handleTypeInput() && userIDInput.length === 0) {
+        if (checkInput() && checkYearInput() && checkTypeInput() && userIDInput.length === 0) {
             requestData()
         }
         // Case 2: ID only
-        else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && handleIDInput()) {
+        else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && checkIDInput()) {
             requestData()
         }
         // Error
