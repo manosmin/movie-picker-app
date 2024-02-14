@@ -9,7 +9,6 @@ function Movies() {
     const [userIDInput, setUserIDInput] = useState('');
     const [movieResults, setMovieResults] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         sendQuery();
@@ -17,7 +16,8 @@ function Movies() {
 
     useEffect(() => {
         setMovieResults(null)
-    }, [errorMessage]);
+        setCurrentPage(1)
+    }, [userInput])
 
     function checkTypeInput() {
         const allowedTypes = ['movie', 'game', 'episode', 'series'];
@@ -37,7 +37,6 @@ function Movies() {
     }
 
     function randomMovie() {
-        setErrorMessage('')
         const randomImdbID = 'tt0' + Math.floor(Math.random() * 1000000)
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${randomImdbID}`;
         fetch(API_URL)
@@ -57,12 +56,11 @@ function Movies() {
         }
         // Error
         else {
-            setErrorMessage('fix your query')
+            console.log('fix your query')
         }
     }
 
     function requestData() {
-        setErrorMessage('')
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
             .then(response => response.json())
