@@ -14,13 +14,39 @@ function Movies() {
         sendQuery();
     }, [currentPage]);
 
-    useEffect(() => {
-        setUserInput('');
-        setUserTypeInput('');
-        setUserYearInput('');
-    }, [userIDInput]);
+    function handleTypeInput() {
+        const allowedTypes = ['movie', 'game', 'episode', 'series'];
+        return userTypeInput === '' || allowedTypes.includes(userTypeInput.trim().toLowerCase())
+    }
 
+    function handleYearInput() {
+        return userYearInput === '' || (/^\d{4}$/).test(userYearInput)
+    }
+
+    function handleIDInput() {
+        return userIDInput.startsWith('tt')
+    }
+
+    function handleInput() {
+        return (/^[^\s]{1,}$/).test(userInput);
+    }
+    
     function sendQuery() {
+        // Case 1: Title and Year and/or Type only 
+        if (handleInput() && handleYearInput() && handleTypeInput() && userIDInput.length === 0) {
+            requestData()
+        }
+        // Case 2: ID only
+        else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && handleIDInput()) {
+            requestData()
+        }
+        // Error
+        else {
+            console.log('fix your query')
+        }
+    }
+
+    function requestData() {
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
             .then(response => response.json())
