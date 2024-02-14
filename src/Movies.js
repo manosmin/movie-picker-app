@@ -37,23 +37,22 @@ function Movies() {
     }
 
     function randomMovie() {
-        setUserIDInput('tt0' + Math.floor(Math.random() * 1000000))
-        setUserInput('')
-        setUserTypeInput('')
-        setUserYearInput('')
-        setCurrentPage(1)
-        requestData()
+        setErrorMessage('')
+        const randomImdbID = 'tt0' + Math.floor(Math.random() * 1000000)
+        const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${randomImdbID}`;
+        fetch(API_URL)
+            .then(response => response.json())
+            .then(json => setMovieResults(json))
+            .catch(error => console.error(error));
     }
     
     function sendQuery() {
         // Case 1: Title and Year and/or Type only 
         if (checkInput() && checkYearInput() && checkTypeInput() && userIDInput.length === 0) {
-            setErrorMessage('')
             requestData()
         }
         // Case 2: ID only
         else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && checkIDInput()) {
-            setErrorMessage('')
             requestData()
         }
         // Error
@@ -63,6 +62,7 @@ function Movies() {
     }
 
     function requestData() {
+        setErrorMessage('')
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
             .then(response => response.json())
