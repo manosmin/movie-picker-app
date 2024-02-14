@@ -94,7 +94,7 @@ function Movies() {
             </div>
             <div className="div2">
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null &&
-                    movieResults.Search.slice(0, 5).map(item => (
+                    movieResults.Search.map(item => (
                         <MovieElement key={item.imdbID} myResults={item}></MovieElement>
                     ))}
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors &&
