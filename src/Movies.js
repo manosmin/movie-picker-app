@@ -9,10 +9,15 @@ function Movies() {
     const [userIDInput, setUserIDInput] = useState('');
     const [movieResults, setMovieResults] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         sendQuery();
     }, [currentPage]);
+
+    useEffect(() => {
+        setMovieResults(null)
+    }, [errorMessage]);
 
     function checkTypeInput() {
         const allowedTypes = ['movie', 'game', 'episode', 'series'];
@@ -42,11 +47,12 @@ function Movies() {
         }
         // Error
         else {
-            console.log('fix your query')
+            setErrorMessage('fix your query')
         }
     }
 
     function requestData() {
+        setErrorMessage('')
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
             .then(response => response.json())
@@ -78,7 +84,7 @@ function Movies() {
             <div className="div2">
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null &&
                     movieResults.Search.slice(0, 5).map(item => (
-                        <MovieElement myResults={item}></MovieElement>
+                        <MovieElement key={item.imdbID} myResults={item}></MovieElement>
                     ))}
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors &&
                     <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>
