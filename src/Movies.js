@@ -24,7 +24,7 @@ function Movies() {
     }
 
     function checkIDInput() {
-        return userIDInput.startsWith('tt')
+        return (/^tt\d{7}$/).test(userIDInput);
     }
 
     function checkInput() {
