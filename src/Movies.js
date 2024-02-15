@@ -70,32 +70,30 @@ function Movies() {
     return (
         <div>
             <div className='div1'>
-                <button onClick={randomMovie}>🎲</button>
-                <input
+                <button className='btn btn-light' onClick={randomMovie}>🎲</button>
+                <input className="form-control"
                     placeholder="ID"
                     onChange={(e) => setUserIDInput(e.target.value)}
                 ></input>
-                <input
+                <input className="form-control"
                     placeholder="Title"
                     onChange={(e) => setUserInput(e.target.value)}
                 ></input>
-                <input
+                <input className="form-control"
                     placeholder="Type"
                     onChange={(e) => setUserTypeInput(e.target.value)}
                 ></input>
-                <input
+                <input className="form-control"
                     placeholder="Year"
                     onChange={(e) => setUserYearInput(e.target.value)}
                 ></input>
-                <button onClick={sendQuery}>🔎</button>
-                <div className='div1'>
-                    <button disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                <button className='btn btn-light' onClick={sendQuery}>🔎</button>
+                    <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                             ⬅
                     </button>
-                    <button disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                    <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                             ➡
                     </button> 
-                </div>
             </div>
             <div className='container'>
                 <div className='row justify-content-center'>
