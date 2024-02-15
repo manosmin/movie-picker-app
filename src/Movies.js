@@ -97,7 +97,8 @@ function Movies() {
                     </button> 
                 </div>
             </div>
-            <div className="div2">
+            <div className='container'>
+                <div className='row justify-content-center'>
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null &&
                     movieResults.Search.map(item => (
                         <MovieElement key={item.imdbID} myResults={item}></MovieElement>
@@ -105,6 +106,7 @@ function Movies() {
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors &&
                     <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>
                     }
+                </div>
             </div>
         </div>
     );
