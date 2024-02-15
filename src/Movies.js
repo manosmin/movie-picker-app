@@ -15,9 +15,8 @@ function Movies() {
     }, [currentPage]);
 
     useEffect(() => {
-        setMovieResults(null)
         setCurrentPage(1)
-    }, [userInput])
+    }, [userInput, userTypeInput, userYearInput, userIDInput])
 
     function checkTypeInput() {
         const allowedTypes = ['movie', 'game', 'episode', 'series'];
@@ -89,6 +88,14 @@ function Movies() {
                     onChange={(e) => setUserYearInput(e.target.value)}
                 ></input>
                 <button onClick={sendQuery}>🔎</button>
+                <div className='div1'>
+                    <button disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                            ⬅
+                    </button>
+                    <button disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                            ➡
+                    </button> 
+                </div>
             </div>
             <div className="div2">
                 {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null &&
@@ -99,16 +106,6 @@ function Movies() {
                     <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>
                     }
             </div>
-            {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null && (
-                <div className='div1'>
-                    <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
-                        ⬅
-                    </button>
-                    <button disabled={currentPage === 5} onClick={() => setCurrentPage(currentPage + 1)}>
-                        ➡
-                    </button>
-                </div>
-            )}
         </div>
     );
 }
