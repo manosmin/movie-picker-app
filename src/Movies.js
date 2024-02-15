@@ -32,7 +32,7 @@ function Movies() {
     }
 
     function checkInput() {
-        return (/^[^\s]{1,}$/).test(userInput);
+        return userInput.trim().length > 0;
     }
 
     function randomMovie() {
