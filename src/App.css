@@ -5,7 +5,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   text-align: center;
-  color:white
+  color:white;
 }
 
 button {
@@ -21,27 +21,26 @@ input {
 }
 
 .div1 {
-  display: inline-block;
   display: flex;
   margin-left: 20rem;
   margin-right: 20rem;
   margin-top: 1rem;
 }
 
-.div2 {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-} 
-
 .card1 {
-  text-align: right;
+  text-align: center;
   width: 16rem;
   margin-right: 1rem;
   margin-left: 1rem; 
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card1:hover {
+  transform: scale(1.02);
 }
 
 .card2 {
@@ -52,4 +51,15 @@ input {
   margin-top: 2rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
+  transition: 0.3s;
+}
+
+.card2:hover {
+  transform: scale(1.02);
+}
+
+img {
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 15px 15px 15px 15px;
 }

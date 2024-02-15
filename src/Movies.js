@@ -70,7 +70,6 @@ function Movies() {
     return (
         <div>
             <div className='div1'>
-                <button className='btn btn-light' onClick={randomMovie}>🎲</button>
                 <input className="form-control"
                     placeholder="ID"
                     onChange={(e) => setUserIDInput(e.target.value)}
@@ -88,12 +87,13 @@ function Movies() {
                     onChange={(e) => setUserYearInput(e.target.value)}
                 ></input>
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
-                    <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
-                            ⬅
-                    </button>
-                    <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                <button className='btn btn-light' onClick={randomMovie}>🎲</button>
+                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                        ⬅
+                </button>
+                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                             ➡
-                    </button> 
+                </button> 
             </div>
             <div className='container'>
                 <div className='row justify-content-center'>

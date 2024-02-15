@@ -8,7 +8,7 @@ function MovieDetailedElement(props) {
 
     return (<>
             <Card className='card2' >
-                <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster} style={{marginTop: '1rem', cursor: 'pointer'}}/>
+                <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
                 <Card.Body>
                     <Card.Title>{props.myResults.Title}</Card.Title>
                     <Card.Text><b>Year: </b>{props.myResults.Year}</Card.Text>
@@ -16,7 +16,7 @@ function MovieDetailedElement(props) {
                     <Card.Text><b>Director: </b>{props.myResults.Director}</Card.Text>
                     <Card.Text><b>Actors: </b>{props.myResults.Actors}</Card.Text>
                     <Card.Text><b>Awards: </b>{props.myResults.Awards}</Card.Text>
-                    <Card.Text><b>IMDB Rating: </b>{props.myResults.imdbRating}</Card.Text>
+                    <Card.Text><b>IMDb Rating: </b>{props.myResults.imdbRating}</Card.Text>
                     <Card.Text><b>Plot: </b>{props.myResults.Plot}</Card.Text>
                 </Card.Body>
             </Card>
