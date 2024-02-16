@@ -18,6 +18,12 @@ function Movies() {
         setCurrentPage(1)
     }, [userInput, userTypeInput, userYearInput, userIDInput])
 
+    const handlePress = e => {
+        if(e.key === 'Enter') { 
+         sendQuery()
+        }
+       }
+
     function checkTypeInput() {
         const allowedTypes = ['movie', 'game', 'episode', 'series'];
         return userTypeInput === '' || allowedTypes.includes(userTypeInput.trim().toLowerCase())
@@ -73,18 +79,22 @@ function Movies() {
                 <input className="form-control"
                     placeholder="ID"
                     onChange={(e) => setUserIDInput(e.target.value)}
+                    onKeyDown={handlePress}
                 ></input>
                 <input className="form-control"
                     placeholder="Title"
                     onChange={(e) => setUserInput(e.target.value)}
+                    onKeyDown={handlePress}
                 ></input>
                 <input className="form-control"
                     placeholder="Type"
                     onChange={(e) => setUserTypeInput(e.target.value)}
+                    onKeyDown={handlePress}
                 ></input>
                 <input className="form-control"
                     placeholder="Year"
                     onChange={(e) => setUserYearInput(e.target.value)}
+                    onKeyDown={handlePress}
                 ></input>
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
                 <button className='btn btn-light' onClick={randomMovie}>🎲</button>
