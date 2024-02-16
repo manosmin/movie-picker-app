@@ -1,3 +1,4 @@
+import { CardFooter, CardHeader, CardText, CardTitle } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
 
 function MovieElement(props) {
@@ -8,13 +9,16 @@ function MovieElement(props) {
 
     return (<>
             <Card className='card1'>
-                <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
+                <CardHeader>
+                    <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
+                </CardHeader>
                 <Card.Body>
-                    <Card.Title>{props.myResults.Title}</Card.Title>
-                    <Card.Text><b>Year: </b>{props.myResults.Year}</Card.Text>
-                    <Card.Text><b>ID: </b>{props.myResults.imdbID}</Card.Text>
-                    <Card.Text><b>Type: </b>{props.myResults.Type}</Card.Text>
+                    <CardTitle>{props.myResults.Title}</CardTitle>
+                    <CardText>
+                    {props.myResults.Year}<br></br>{props.myResults.Type}<br></br>{props.myResults.imdbID}
+                    </CardText>
                 </Card.Body>
+                <CardFooter></CardFooter>
             </Card>
         </>
       )

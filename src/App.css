@@ -28,7 +28,7 @@ input {
 }
 
 .card1 {
-  text-align: center;
+  text-align: right;
   width: 16rem;
   margin-right: 1rem;
   margin-left: 1rem; 
@@ -38,7 +38,6 @@ input {
   transition: 0.3s;
 }
 
-/* On mouse-over, add a deeper shadow */
 .card1:hover {
   transform: scale(1.02);
 }

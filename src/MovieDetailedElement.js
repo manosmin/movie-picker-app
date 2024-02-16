@@ -1,3 +1,4 @@
+import { CardFooter, CardHeader, CardText, CardTitle } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
 
 function MovieDetailedElement(props) {
@@ -8,17 +9,14 @@ function MovieDetailedElement(props) {
 
     return (<>
             <Card className='card2' >
-                <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
+                <CardHeader>
+                    <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
+                </CardHeader>
                 <Card.Body>
-                    <Card.Title>{props.myResults.Title}</Card.Title>
-                    <Card.Text><b>Year: </b>{props.myResults.Year}</Card.Text>
-                    <Card.Text><b>Writer: </b>{props.myResults.Writer}</Card.Text>
-                    <Card.Text><b>Director: </b>{props.myResults.Director}</Card.Text>
-                    <Card.Text><b>Actors: </b>{props.myResults.Actors}</Card.Text>
-                    <Card.Text><b>Awards: </b>{props.myResults.Awards}</Card.Text>
-                    <Card.Text><b>IMDb Rating: </b>{props.myResults.imdbRating}</Card.Text>
-                    <Card.Text><b>Plot: </b>{props.myResults.Plot}</Card.Text>
+                    <CardTitle>{props.myResults.Title}</CardTitle>
+                    <CardText><b>Year: </b>{props.myResults.Year}<br></br><b>Writer: </b>{props.myResults.Writer}<br></br><b>Director: </b>{props.myResults.Director}<br></br><b>Actors: </b>{props.myResults.Actors}<br></br><b>Awards: </b>{props.myResults.Awards}<br></br><b>IMDb Rating: </b>{props.myResults.imdbRating}<br></br><b>Plot: </b>{props.myResults.Plot}</CardText>
                 </Card.Body>
+                <CardFooter></CardFooter>
             </Card>
         </>
       )
