@@ -105,17 +105,16 @@ function Movies() {
                             Next
                 </button> 
             </div>
+            {movieResults && movieResults.Response !== 'False' && (
             <div className='container'>
                 <div className='row justify-content-center'>
-                {movieResults && movieResults.Response !== 'False' && movieResults.Actors == null &&
-                    movieResults.Search.map(item => (
-                        <MovieElement key={item.imdbID} myResults={item}></MovieElement>
-                    ))}
-                {movieResults && movieResults.Response !== 'False' && movieResults.Actors &&
-                    <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>
-                    }
+                {
+                movieResults.Actors == null ? 
+                movieResults.Search.map(item => (<MovieElement key={item.imdbID} myResults={item}></MovieElement>)) :
+                <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>}
                 </div>
             </div>
+            )}
         </div>
     );
 }
