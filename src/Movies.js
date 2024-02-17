@@ -9,9 +9,12 @@ function Movies() {
     const [userIDInput, setUserIDInput] = useState('');
     const [movieResults, setMovieResults] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [errorMessage, setErrorMessage] = useState('');
+    const allowedTypes = ['movie', 'game', 'episode', 'series'];
 
     useEffect(() => {
         sendQuery();
+        setErrorMessage('')
     }, [currentPage]);
 
     useEffect(() => {
@@ -25,7 +28,6 @@ function Movies() {
        }
 
     function checkTypeInput() {
-        const allowedTypes = ['movie', 'game', 'episode', 'series'];
         return userTypeInput === '' || allowedTypes.includes(userTypeInput.trim().toLowerCase())
     }
 
@@ -42,34 +44,44 @@ function Movies() {
     }
 
     function randomMovie() {
-        const randomImdbID = 'tt0' + Math.floor(Math.random() * 1000000)
+        setErrorMessage('');
+        const randomImdbID = 'tt' + Math.floor(Math.random() * 10000000)
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&i=${randomImdbID}`;
         fetch(API_URL)
             .then(response => response.json())
-            .then(json => setMovieResults(json))
+            .then(json => {if (json.Error) {
+                setMovieResults('');
+                setErrorMessage(json.Error);
+            } else {
+                setErrorMessage('');
+                setMovieResults(json);
+            }})
             .catch(error => console.error(error));
     }
     
     function sendQuery() {
-        // Case 1: Title and Year and/or Type only 
         if (checkInput() && checkYearInput() && checkTypeInput() && userIDInput.length === 0) {
             requestData()
-        }
-        // Case 2: ID only
-        else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && checkIDInput()) {
+        } else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && checkIDInput()) {
             requestData()
-        }
-        // Error
-        else {
-            console.log('fix your query')
+        } else {
+            setMovieResults('')
+            setErrorMessage('Fix your query.')
         }
     }
 
     function requestData() {
+        setErrorMessage('');
         const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${userInput}&i=${userIDInput}&page=${currentPage}&type=${userTypeInput}&y=${userYearInput}`;
         fetch(API_URL)
             .then(response => response.json())
-            .then(json => setMovieResults(json))
+            .then(json => {if (json.Error) {
+                setMovieResults('');
+                setErrorMessage(json.Error);
+            } else {
+                setErrorMessage('');
+                setMovieResults(json);
+            }})
             .catch(error => console.error(error));
     }
 
@@ -98,13 +110,14 @@ function Movies() {
                 ></input>
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
                 <button className='btn btn-light' onClick={randomMovie}>🎲</button>
-                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || movieResults.Error !== '' ||  currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                     ⬅️
                 </button>
-                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                <button className='btn btn-light' disabled={movieResults == null || movieResults.Error !== '' || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                     ➡️
                 </button> 
             </div>
+            {errorMessage && (<h2>{errorMessage}</h2>)}
             {movieResults && movieResults.Response !== 'False' && (
             <div className='container'>
                 <div className='row justify-content-center'>

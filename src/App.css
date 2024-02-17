@@ -1,6 +1,6 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url(background.jpg);
+  background-image: url(../public/background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +23,8 @@ input {
 
 .div1 {
   display: flex;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card1 {
