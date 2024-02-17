@@ -74,7 +74,7 @@ function Movies() {
     }
 
     return (
-        <div>
+        <div className='container'>
             <div className='div1'>
                 <input className="form-control"
                     placeholder="ID"
@@ -99,10 +99,10 @@ function Movies() {
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
                 <button className='btn btn-light' onClick={randomMovie}>🎲</button>
                 <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
-                        Previous
+                    ⬅️
                 </button>
                 <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
-                            Next
+                    ➡️
                 </button> 
             </div>
             {movieResults && movieResults.Response !== 'False' && (
