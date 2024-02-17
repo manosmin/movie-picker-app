@@ -50,7 +50,7 @@ function Movies() {
         fetch(API_URL)
             .then(response => response.json())
             .then(json => {if (json.Error) {
-                setMovieResults('');
+                setMovieResults(null);
                 setErrorMessage(json.Error);
             } else {
                 setErrorMessage('');
@@ -65,7 +65,7 @@ function Movies() {
         } else if (userInput.length + userTypeInput.length + userYearInput.length === 0 && checkIDInput()) {
             requestData()
         } else {
-            setMovieResults('')
+            setMovieResults(null)
             setErrorMessage('Fix your query.')
         }
     }
@@ -76,7 +76,7 @@ function Movies() {
         fetch(API_URL)
             .then(response => response.json())
             .then(json => {if (json.Error) {
-                setMovieResults('');
+                setMovieResults(null);
                 setErrorMessage(json.Error);
             } else {
                 setErrorMessage('');
@@ -110,10 +110,10 @@ function Movies() {
                 ></input>
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
                 <button className='btn btn-light' onClick={randomMovie}>🎲</button>
-                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || errorMessage !== '' ||  currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                <button className='btn btn-light' disabled={movieResults === null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                     ⬅️
                 </button>
-                <button className='btn btn-light' disabled={movieResults == null || errorMessage !== '' || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                <button className='btn btn-light' disabled={movieResults === null  || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                     ➡️
                 </button> 
             </div>
