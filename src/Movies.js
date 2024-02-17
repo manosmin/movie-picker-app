@@ -110,10 +110,10 @@ function Movies() {
                 ></input>
                 <button className='btn btn-light' onClick={sendQuery}>🔎</button>
                 <button className='btn btn-light' onClick={randomMovie}>🎲</button>
-                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || movieResults.Error !== '' ||  currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                <button className='btn btn-light' disabled={movieResults == null || movieResults.Actors || errorMessage !== '' ||  currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                     ⬅️
                 </button>
-                <button className='btn btn-light' disabled={movieResults == null || movieResults.Error !== '' || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                <button className='btn btn-light' disabled={movieResults == null || errorMessage !== '' || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                     ➡️
                 </button> 
             </div>
