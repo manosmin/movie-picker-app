@@ -117,8 +117,7 @@ function Movies() {
                     ➡️
                 </button> 
             </div>
-            {errorMessage && (<h2>{errorMessage}</h2>)}
-            {movieResults && movieResults.Response !== 'False' && (
+            {movieResults && movieResults.Response !== 'False' ? (
             <div className='container'>
                 <div className='row justify-content-center'>
                 {
@@ -127,7 +126,7 @@ function Movies() {
                 <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>}
                 </div>
             </div>
-            )}
+            ): <h2>{errorMessage}</h2>}
         </div>
     );
 }
