@@ -126,7 +126,7 @@ function Movies() {
                 <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>}
                 </div>
             </div>
-            ): <h2>{errorMessage}</h2>}
+            ): <h2 style={{marginTop: '25rem'}}>{errorMessage}</h2>}
         </div>
     );
 }
