@@ -23,8 +23,8 @@ input {
 
 .div1 {
   display: flex;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card1 {
@@ -47,8 +47,8 @@ input {
   width: 24rem;
   margin-right: 1rem;
   margin-left: 1rem; 
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem;
   transition: 0.2s;
 }
@@ -60,5 +60,5 @@ input {
 img {
   margin-top: 1rem;
   cursor: pointer;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 5px 5px 5px 5px;
 }
