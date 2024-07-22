@@ -13,6 +13,10 @@ function Movies() {
     const allowedTypes = ['movie', 'game', 'episode', 'series'];
 
     useEffect(() => {
+        // your effect code here
+      }, [sendQuery]); // add sendQuery as a dependency
+
+    useEffect(() => {
         sendQuery();
         setErrorMessage('')
     }, [currentPage]);
