@@ -14,8 +14,8 @@ function Movies() {
 
     useEffect(() => {
         sendQuery();
-        // eslint-disable-next-line
         setErrorMessage('')
+        // eslint-disable-next-line
     }, [currentPage]);
 
     useEffect(() => {
