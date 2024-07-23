@@ -17,10 +17,10 @@ Check it out 😊  https://manosmin.github.io/movie-picker-app/
 
 
 ## Screenshots
-
-**Desktop)**
-![Home Page Desktop](https://github.com/manosmin/movie-picker-app/raw/master/screenshots/desktop.png)
-
-**Mobile** 
-![Home Page Mobile](https://github.com/manosmin/movie-picker-app/raw/master/screenshots/mobile.png)
+<div align='center'>
+<img src="https://github.com/manosmin/movie-picker-app/raw/master/screenshots/desktop.png">
+</br>
+</br>
+<img src="https://github.com/manosmin/movie-picker-app/raw/master/screenshots/mobile.png" height="700px">
+</div>
 
