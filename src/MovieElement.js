@@ -11,7 +11,7 @@ function MovieElement(props) {
     return (<>
             <Card className='card1'>
                 <CardHeader>
-                    {props.myResults.Poster === 'N/A' ? <Card.Img onClick={redirectToPage} variant="top" src='https://png.pngtree.com/png-clipart/20230812/original/pngtree-corrupted-file-document-outline-icon-picture-image_7882626.png'/> : <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>}
+                    {props.myResults.Poster === 'N/A' ? <Card.Img onClick={redirectToPage} variant="top" src={process.env.PUBLIC_URL + '/placeholder.png'}/> : <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>}
                 </CardHeader>
                 <Card.Body>
                     <CardTitle>{props.myResults.Title}</CardTitle>
