@@ -87,36 +87,49 @@ function Movies() {
     }
 
     return (
-        <div className='container'>
-            <div className='div1'>
-                <input className="form-control"
-                    placeholder="ID"
-                    onChange={(e) => setUserIDInput(e.target.value)}
-                    onKeyDown={handlePress}
-                ></input>
-                <input className="form-control"
-                    placeholder="Title"
-                    onChange={(e) => setUserInput(e.target.value)}
-                    onKeyDown={handlePress}
-                ></input>
-                <input className="form-control"
-                    placeholder="Type"
-                    onChange={(e) => setUserTypeInput(e.target.value)}
-                    onKeyDown={handlePress}
-                ></input>
-                <input className="form-control"
-                    placeholder="Year"
-                    onChange={(e) => setUserYearInput(e.target.value)}
-                    onKeyDown={handlePress}
-                ></input>
-                <button className='btn btn-light' onClick={sendQuery}>🔎</button>
-                <button className='btn btn-light' onClick={randomMovie}>🎲</button>
-                <button className='btn btn-light' disabled={movieResults === null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+        <div className='container' id="containerDiv">
+            <div class="row">
+                <div class="col-sm-2">
+                    <input className="form-control"
+                        placeholder="ID"
+                        onChange={(e) => setUserIDInput(e.target.value)}
+                        onKeyDown={handlePress}
+                    ></input>
+                </div>
+                <div class="col-sm-2">
+                    <input className="form-control"
+                        placeholder="Title"
+                        onChange={(e) => setUserInput(e.target.value)}
+                        onKeyDown={handlePress}
+                    ></input>
+                </div>
+                <div class="col-sm-2">
+                    <input className="form-control"
+                        placeholder="Type"
+                        onChange={(e) => setUserTypeInput(e.target.value)}
+                        onKeyDown={handlePress}
+                    ></input>
+                </div>
+                <div class="col-sm-2">
+                    <input className="form-control"
+                        placeholder="Year"
+                        onChange={(e) => setUserYearInput(e.target.value)}
+                        onKeyDown={handlePress}
+                    ></input>
+                </div>
+                <div class="col-sm">
+                    <button className='btn btn-light' onClick={sendQuery}>🔎</button>
+
+                    <button className='btn btn-light' onClick={randomMovie}>🎲</button>
+
+                    <button className='btn btn-light' disabled={movieResults === null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
                     ⬅️
-                </button>
-                <button className='btn btn-light' disabled={movieResults === null  || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
+                    </button>
+
+                    <button className='btn btn-light' disabled={movieResults === null  || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
                     ➡️
-                </button> 
+                    </button> 
+                </div>
             </div>
             {movieResults && movieResults.Response !== 'False' ? (
             <div className='container'>
