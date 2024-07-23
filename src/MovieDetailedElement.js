@@ -1,4 +1,4 @@
-import { CardFooter, CardHeader, CardText, CardTitle } from 'react-bootstrap';
+import { CardHeader, CardText, CardTitle } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
 
 function MovieDetailedElement(props) {
@@ -10,13 +10,12 @@ function MovieDetailedElement(props) {
     return (<>
             <Card className='card2' >
                 <CardHeader>
-                    <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>
+                {props.myResults.Poster === 'N/A' ? <Card.Img onClick={redirectToPage} variant="top" src='https://png.pngtree.com/png-clipart/20230812/original/pngtree-corrupted-file-document-outline-icon-picture-image_7882626.png'/> : <Card.Img onClick={redirectToPage} variant="top" src={props.myResults.Poster}/>}
                 </CardHeader>
                 <Card.Body>
                     <CardTitle>{props.myResults.Title}</CardTitle>
                     <CardText><b>Year: </b>{props.myResults.Year}<br></br><b>Writer: </b>{props.myResults.Writer}<br></br><b>Director: </b>{props.myResults.Director}<br></br><b>Actors: </b>{props.myResults.Actors}<br></br><b>Awards: </b>{props.myResults.Awards}<br></br><b>IMDb Rating: </b>{props.myResults.imdbRating}<br></br><b>Plot: </b>{props.myResults.Plot}</CardText>
                 </Card.Body>
-                <CardFooter></CardFooter>
             </Card>
         </>
       )
