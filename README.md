@@ -11,11 +11,16 @@ If you are indecisive 😋 the app can suggest a random movie, by pressing the d
 
 It also supports pagination, by clicking on the arrow at the top right of the screen ➡️.
 
-Check it out 😊: https://manosmin.github.io/movie-picker-app/
+The app has a fully responsive design implemented with [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/), so you can use it from mobile 📱.
 
+Check it out 😊  https://manosmin.github.io/movie-picker-app/
 
 
 ## Screenshots
 
-![Home Page](https://github.com/manosmin/movie-picker-app/raw/master/screenshots/screenshot.png)
+**Desktop)**
+![Home Page Desktop](https://github.com/manosmin/movie-picker-app/raw/master/screenshots/desktop.png)
+
+**Mobile** 
+![Home Page Mobile](https://github.com/manosmin/movie-picker-app/raw/master/screenshots/mobile.png)
 
