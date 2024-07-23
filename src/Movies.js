@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import MovieElement from './MovieElement';
 import MovieDetailedElement from './MovieDetailedElement';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDice, faArrowLeft, faArrowRight, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+
 function Movies() {
     const API_KEY = '7b24a2fe';
     const [userInput, setUserInput] = useState('');
@@ -67,7 +70,7 @@ function Movies() {
             requestData()
         } else {
             setMovieResults(null)
-            setErrorMessage('Fix your query.')
+            setErrorMessage('Fix your query')
         }
     }
 
@@ -89,28 +92,28 @@ function Movies() {
     return (
         <div className='container' id="containerDiv">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm">
                     <input className="form-control"
                         placeholder="ID"
                         onChange={(e) => setUserIDInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm">
                     <input className="form-control"
                         placeholder="Title"
                         onChange={(e) => setUserInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm">
                     <input className="form-control"
                         placeholder="Type"
                         onChange={(e) => setUserTypeInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm">
                     <input className="form-control"
                         placeholder="Year"
                         onChange={(e) => setUserYearInput(e.target.value)}
@@ -118,16 +121,16 @@ function Movies() {
                     ></input>
                 </div>
                 <div class="col-sm">
-                    <button className='btn btn-light' onClick={sendQuery}>🔎</button>
+                    <button className='btn btn-light' onClick={sendQuery}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
 
-                    <button className='btn btn-light' onClick={randomMovie}>🎲</button>
+                    <button className='btn btn-light' onClick={randomMovie}><FontAwesomeIcon icon={faDice} /></button>
 
                     <button className='btn btn-light' disabled={movieResults === null || movieResults.Actors || currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
-                    ⬅️
+                    <FontAwesomeIcon icon={faArrowLeft} />
                     </button>
 
                     <button className='btn btn-light' disabled={movieResults === null  || movieResults.Actors } onClick={() => setCurrentPage(currentPage + 1)}>
-                    ➡️
+                    <FontAwesomeIcon icon={faArrowRight} />
                     </button> 
                 </div>
             </div>
@@ -140,7 +143,7 @@ function Movies() {
                 <MovieDetailedElement myResults={movieResults}></MovieDetailedElement>}
                 </div>
             </div>
-            ): <h2 style={{marginTop: '25rem'}}>{errorMessage}</h2>}
+            ): <div className="mx-auto custom-container p-4 text-center"><h3>{errorMessage}</h3></div>}
         </div>
     );
 }

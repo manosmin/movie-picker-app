@@ -1,4 +1,4 @@
-import { CardFooter, CardHeader, CardText, CardTitle } from 'react-bootstrap';
+import { CardHeader, CardText, CardTitle } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
 
 function MovieElement(props) {
@@ -18,7 +18,6 @@ function MovieElement(props) {
                     {props.myResults.Year}<br></br>{props.myResults.Type}<br></br>{props.myResults.imdbID}
                     </CardText>
                 </Card.Body>
-                <CardFooter></CardFooter>
             </Card>
         </>
       )
