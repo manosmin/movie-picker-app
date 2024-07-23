@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/movie-picker-app/static/css/main.b382d0c7.css",
-    "main.js": "/movie-picker-app/static/js/main.5e99951e.js",
+    "main.css": "/movie-picker-app/static/css/main.cf138fb2.css",
+    "main.js": "/movie-picker-app/static/js/main.0f09a0bc.js",
     "index.html": "/movie-picker-app/index.html",
-    "main.b382d0c7.css.map": "/movie-picker-app/static/css/main.b382d0c7.css.map",
-    "main.5e99951e.js.map": "/movie-picker-app/static/js/main.5e99951e.js.map"
+    "main.cf138fb2.css.map": "/movie-picker-app/static/css/main.cf138fb2.css.map",
+    "main.0f09a0bc.js.map": "/movie-picker-app/static/js/main.0f09a0bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.b382d0c7.css",
-    "static/js/main.5e99951e.js"
+    "static/css/main.cf138fb2.css",
+    "static/js/main.0f09a0bc.js"
   ]
 }
