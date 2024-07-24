@@ -54,9 +54,10 @@ function Movies() {
         fetch(API_URL)
             .then(response => response.json())
             .then(json => {if (json.Error) {
-                setMovieResults(null);
-                setErrorMessage(json.Error);
+                console.log(`Invalid ID: ${randomImdbID}, retrying...`);
+                return randomMovie();
             } else {
+                console.log(`Valid ID: ${randomImdbID}, success!`);
                 setErrorMessage('');
                 setMovieResults(json);
             }})
@@ -91,36 +92,36 @@ function Movies() {
 
     return (
         <div className='container' id="containerDiv">
-            <div class="row">
-                <div class="col-sm">
+            <div className="row">
+                <div className="col-sm">
                     <input className="form-control"
                         placeholder="ID"
                         onChange={(e) => setUserIDInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <input className="form-control"
                         placeholder="Title"
                         onChange={(e) => setUserInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <input className="form-control"
                         placeholder="Type"
                         onChange={(e) => setUserTypeInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <input className="form-control"
                         placeholder="Year"
                         onChange={(e) => setUserYearInput(e.target.value)}
                         onKeyDown={handlePress}
                     ></input>
                 </div>
-                <div class="col-sm">
+                <div className="col-sm">
                     <button className='btn btn-light' onClick={sendQuery}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
 
                     <button className='btn btn-light' onClick={randomMovie}><FontAwesomeIcon icon={faDice} /></button>
