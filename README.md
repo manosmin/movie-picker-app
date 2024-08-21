@@ -13,14 +13,13 @@ It also supports pagination, by clicking on the arrow at the top right of the sc
 
 The app has a fully responsive design implemented with [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/), so you can use it from mobile 📱.
 
-Check it out 😊  https://manosmin.github.io/movie-picker-app/
-
-
+<!--
 ## Screenshots
 <div align='center'>
-<img src="https://github.com/manosmin/movie-picker-app/raw/master/screenshots/desktop.png">
+ <img src="https://github.com/manosmin/movie-picker-app/raw/master/screenshots/desktop.png">
 </br>
 </br>
 <img src="https://github.com/manosmin/movie-picker-app/raw/master/screenshots/mobile.png" height="700px">
 </div>
+-->
 
